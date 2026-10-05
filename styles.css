@@ -520,17 +520,6 @@ body {
     object-fit: contain;
 }
 
-.outfit-photo-upload {
-    margin-top: 1rem;
-}
-
-.outfit-photo-upload label {
-    display: block;
-    margin-bottom: 0.5rem;
-    font-weight: 600;
-    color: var(--text-primary);
-}
-
 .outfit-name-input input {
     width: 100%;
     padding: 0.75rem;
@@ -685,15 +674,6 @@ body {
 
 .outfit-stack-preview.detail .outfit-stack-item img {
     height: 140px;
-}
-
-.outfit-full-photo {
-    display: block;
-    max-width: 100%;
-    max-height: 360px;
-    margin: 1rem auto;
-    object-fit: contain;
-    border-radius: var(--radius-sm);
 }
 
 .outfit-card-content {
