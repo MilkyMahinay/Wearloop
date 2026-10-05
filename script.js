@@ -47,7 +47,6 @@ document.addEventListener('DOMContentLoaded', () => {
         initializeFavorites();
         initializeModals();
         renderAllPages();
-        console.log('App initialized successfully');
     } catch (error) {
         console.error('Error initializing app:', error);
         alert('There was an error loading the application. Please refresh the page.');
@@ -58,7 +57,6 @@ document.addEventListener('DOMContentLoaded', () => {
 function loadData() {
     try {
         const read = key => JSON.parse(localStorage.getItem(key) || 'null');
-        const hasSavedData = Object.values(STORAGE_KEYS).some(key => localStorage.getItem(key) !== null);
 
         clothingItems = read(STORAGE_KEYS.CLOTHING) || [];
         outfits = read(STORAGE_KEYS.OUTFITS) || [];
@@ -71,29 +69,9 @@ function loadData() {
             outfits: Array.isArray(savedFavorites.outfits) ? savedFavorites.outfits : [],
             photos: Array.isArray(savedFavorites.photos) ? savedFavorites.photos : []
         };
-
-        if (!hasSavedData) {
-            initializeEmptyData();
-        }
     } catch (error) {
         console.error('Error loading data:', error);
-        initializeEmptyData();
     }
-}
-
-// Initialize empty data if localStorage is empty
-function initializeEmptyData() {
-    clothingItems = [];
-    outfits = [];
-    outfitPhotos = [];
-    events = [];
-    notes = [];
-    favorites = {
-        clothing: [],
-        outfits: [],
-        photos: []
-    };
-    saveData();
 }
 
 // Save data to localStorage
@@ -272,7 +250,7 @@ function renderRecentlyAdded() {
 }
 
 function renderFavoriteOutfits() {
-    const container = document.getElementById('favoriteOutfits');
+    const container = document.getElementById('dashboardFavoriteOutfits');
     const favoriteOutfitIds = favorites.outfits;
     const favoriteOutfitsList = outfits.filter(o => favoriteOutfitIds.includes(o.id)).slice(0, 4);
 
@@ -553,13 +531,6 @@ function deleteClothing(id) {
 
 // Outfit Builder
 function initializeOutfitBuilder() {
-    const outfitPhotoInput = document.getElementById('outfitPhoto');
-    const outfitPhotoPreview = document.getElementById('outfitPhotoPreview');
-
-    if (outfitPhotoInput && outfitPhotoPreview) {
-        setupPhotoUpload(outfitPhotoInput, outfitPhotoPreview, 'Outfit preview');
-    }
-
     // Category tabs
     const categoryTabs = document.querySelectorAll('.category-tabs .tab-btn');
     categoryTabs.forEach(btn => {
@@ -678,14 +649,6 @@ function clearOutfit() {
         shoes: null,
         accessory: null
     };
-    const outfitPhotoInput = document.getElementById('outfitPhoto');
-    const outfitPhotoPreview = document.getElementById('outfitPhotoPreview');
-
-    if (outfitPhotoInput) outfitPhotoInput.value = '';
-    if (outfitPhotoPreview) {
-        outfitPhotoPreview.innerHTML = '<span class="upload-placeholder">Add a photo of this outfit</span>';
-    }
-
     document.getElementById('outfitName').value = '';
     updateOutfitPreview();
 }
@@ -704,34 +667,20 @@ function saveOutfit() {
         return;
     }
 
-    const outfitPhotoInput = document.getElementById('outfitPhoto');
-
-    const finalizeSave = (photoData = '') => {
-        const outfit = {
-            id: generateId(),
-            name,
-            items,
-            style: determineOutfitStyle(items),
-            notes: '',
-            photo: photoData,
-            dateCreated: new Date().toISOString()
-        };
-
-        outfits.push(outfit);
-        saveData();
-        clearOutfit();
-        alert('Outfit saved successfully!');
-        navigateToPage('saved-outfits');
+    const outfit = {
+        id: generateId(),
+        name,
+        items,
+        style: determineOutfitStyle(items),
+        notes: '',
+        dateCreated: new Date().toISOString()
     };
 
-    if (outfitPhotoInput && outfitPhotoInput.files[0]) {
-        const reader = new FileReader();
-        reader.onload = (e) => finalizeSave(e.target.result);
-        reader.readAsDataURL(outfitPhotoInput.files[0]);
-        return;
-    }
-
-    finalizeSave();
+    outfits.push(outfit);
+    saveData();
+    clearOutfit();
+    alert('Outfit saved successfully!');
+    navigateToPage('saved-outfits');
 }
 
 function determineOutfitStyle(items) {
@@ -811,10 +760,7 @@ function showOutfitDetails(id) {
     const isFavorite = favorites.outfits.includes(id);
     
     const modalBody = document.getElementById('modalBody');
-    const previewContent = `
-        ${renderOutfitStack(outfit.items, true)}
-        ${outfit.photo ? `<img class="outfit-full-photo" src="${outfit.photo}" alt="Full outfit: ${outfit.name}">` : ''}
-    `;
+    const previewContent = renderOutfitStack(outfit.items, true);
 
     modalBody.innerHTML = `
         <h2>${outfit.name}</h2>
