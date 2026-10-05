@@ -1663,7 +1663,7 @@ function renderFavoritePhotos() {
 }
 
 function toggleFavorite(type, id) {
-    const key = type === 'photo' ? 'photos' : type;
+    const key = { clothing: 'clothing', outfit: 'outfits', photo: 'photos' }[type];
     
     if (favorites[key].includes(id)) {
         favorites[key] = favorites[key].filter(itemId => itemId !== id);
