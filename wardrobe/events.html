@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Events</title>
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+  <body data-page="events">
+    <header class="topbar">
+      <div class="brand">
+        <span class="brand-mark">V</span>
+        <div>
+          <strong>WARDROBE</strong>
+          <small>ROTATION PLANNER</small>
+        </div>
+      </div>
+
+      <nav class="nav">
+        <a href="index.html">Dashboard</a>
+        <a href="wardrobe.html">My Wardrobe</a>
+        <a href="outfits.html">Outfits</a>
+        <a href="events.html" class="active">Events</a>
+      </nav>
+      <a href="wardrobe.html#addClothing" class="button header-cta">Add item</a>
+    </header>
+
+    <main class="page">
+      <section class="page-photo">
+        <img src="https://images.unsplash.com/photo-1589270216117-7972b3082c7d?auto=format&fit=crop&w=900&q=80" alt="Man in a dark suit carrying a brown leather bag" loading="lazy" />
+        <div class="page-photo-copy">
+          <p class="eyebrow">STYLE STUDY / OCCASION WEAR</p>
+          <h1>Events & Outfit Planner</h1>
+          <p>Plan the details early, then choose a look that feels like you.</p>
+          <a class="photo-credit" href="https://unsplash.com/photos/man-in-black-suit-holding-brown-leather-handbag-OenHGpOnsv0" target="_blank" rel="noopener noreferrer">Photo: Asdrubal Luna</a>
+        </div>
+      </section>
+
+      <section class="card form-card">
+        <h2>Add event</h2>
+
+        <form id="eventForm">
+          <div class="form-grid">
+            <div>
+              <label for="eventName">Event name</label>
+              <input id="eventName" type="text" placeholder="University presentation" required />
+            </div>
+
+            <div>
+              <label for="eventDate">Date</label>
+              <input id="eventDate" type="date" required />
+            </div>
+
+            <div>
+              <label for="eventTime">Time</label>
+              <input id="eventTime" type="time" required />
+            </div>
+
+            <div>
+              <label for="eventLocation">Location</label>
+              <input id="eventLocation" type="text" placeholder="University" required />
+            </div>
+          </div>
+
+          <div class="notes-box">
+            <label for="eventNotes">Notes</label>
+            <textarea id="eventNotes" rows="4" placeholder="Need to look professional..."></textarea>
+          </div>
+
+          <div>
+            <label for="plannedOutfit">Planned outfit</label>
+            <select id="plannedOutfit"></select>
+          </div>
+
+          <button type="submit" class="button primary">Save Event</button>
+        </form>
+      </section>
+
+      <section class="card">
+        <h2>Upcoming events</h2>
+        <div id="eventList" class="event-list"></div>
+      </section>
+
+      <section class="card notes-box">
+        <h2>Notes</h2>
+        <form id="noteForm" class="note-form">
+          <input id="noteInput" type="text" placeholder="Write a reminder..." />
+          <button type="submit" class="button secondary">Add Note</button>
+        </form>
+        <ul id="noteList" class="note-list"></ul>
+      </section>
+    </main>
+
+    <script src="js/script.js"></script>
+  </body>
+</html>

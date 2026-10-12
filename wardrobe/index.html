@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Virtual Wardrobe</title>
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+  <body data-page="dashboard">
+    <header class="topbar">
+      <div class="brand">
+        <span class="brand-mark">V</span>
+        <div>
+          <strong>WARDROBE</strong>
+          <small>ROTATION PLANNER</small>
+        </div>
+      </div>
+
+      <nav class="nav">
+        <a href="index.html" class="active">Dashboard</a>
+        <a href="wardrobe.html">My Wardrobe</a>
+        <a href="outfits.html">Outfits</a>
+        <a href="events.html">Events</a>
+      </nav>
+      <a href="wardrobe.html#addClothing" class="button header-cta">Add item</a>
+    </header>
+
+    <main class="page">
+      <section class="editorial-hero">
+        <p class="eyebrow">A considered wardrobe, made personal</p>
+        <h1>Make getting dressed<br />feel like <span>you.</span></h1>
+        <p class="hero-copy">Keep your favourite pieces close, build outfits with what you own, and plan ahead for the days that matter.</p>
+        <div class="hero-actions">
+          <a href="outfits.html" class="button primary">Build an outfit <span aria-hidden="true">&#8594;</span></a>
+          <a href="wardrobe.html" class="hero-link">Explore your wardrobe</a>
+        </div>
+      </section>
+
+      <section class="portfolio-section">
+        <div class="portfolio-heading">
+          <div>
+            <p class="eyebrow">Styled around what you own</p>
+            <h2>Looks to try</h2>
+          </div>
+          <a href="https://www.pinterest.com/search/pins/?q=quiet%20luxury%20outfit%20aesthetic" class="text-link" target="_blank" rel="noopener noreferrer">More style ideas <span aria-hidden="true">&#8594;</span></a>
+        </div>
+        <div class="look-filters" role="group" aria-label="Filter outfit ideas">
+          <button class="look-filter active" type="button" data-look-filter="All" aria-pressed="true">Show all</button>
+          <button class="look-filter" type="button" data-look-filter="Tailored" aria-pressed="false">Tailored</button>
+          <button class="look-filter" type="button" data-look-filter="Everyday" aria-pressed="false">Everyday</button>
+          <button class="look-filter" type="button" data-look-filter="Street" aria-pressed="false">Street style</button>
+          <button class="look-filter" type="button" data-look-filter="Menswear" aria-pressed="false">Menswear</button>
+          <button class="look-filter" type="button" data-look-filter="Color" aria-pressed="false">Color edit</button>
+        </div>
+        <div id="featureItems" class="feature-items"></div>
+      </section>
+
+      <section class="stats-grid">
+        <div class="card stat-box">
+          <span>Clothes</span>
+          <strong id="totalClothes">0</strong>
+        </div>
+        <div class="card stat-box">
+          <span>Saved Outfits</span>
+          <strong id="totalOutfits">0</strong>
+        </div>
+        <div class="card stat-box">
+          <span>Upcoming Events</span>
+          <strong id="totalEvents">0</strong>
+        </div>
+      </section>
+
+      <section class="dashboard-grid">
+        <div class="card">
+          <h2>Today's planned outfit</h2>
+          <div id="todayOutfit" class="empty-box">No outfit planned yet.</div>
+        </div>
+
+        <div class="card">
+          <h2>Upcoming events</h2>
+          <ul id="dashboardEvents" class="simple-list"></ul>
+        </div>
+      </section>
+
+      <section class="card favorites-box">
+        <h2>Favorite items</h2>
+        <div id="favoriteItems" class="favorite-items"></div>
+      </section>
+    </main>
+
+    <script src="js/script.js"></script>
+  </body>
+</html>

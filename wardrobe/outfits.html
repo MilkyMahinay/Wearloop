@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Outfits</title>
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+  <body data-page="outfits">
+    <header class="topbar">
+      <div class="brand">
+        <span class="brand-mark">V</span>
+        <div>
+          <strong>WARDROBE</strong>
+          <small>ROTATION PLANNER</small>
+        </div>
+      </div>
+
+      <nav class="nav">
+        <a href="index.html">Dashboard</a>
+        <a href="wardrobe.html">My Wardrobe</a>
+        <a href="outfits.html" class="active">Outfits</a>
+        <a href="events.html">Events</a>
+      </nav>
+      <a href="wardrobe.html#addClothing" class="button header-cta">Add item</a>
+    </header>
+
+    <main class="page">
+      <section class="page-photo">
+        <img src="https://images.unsplash.com/photo-1620834767673-19f69709a716?auto=format&fit=crop&w=900&q=80" alt="Man wearing a light shirt and tailored trousers" loading="lazy" />
+        <div class="page-photo-copy">
+          <p class="eyebrow">STYLE STUDY / TONAL LAYERS</p>
+          <h1>Outfit Builder</h1>
+          <p>Start with pieces you own. Keep the palette simple and let the fit do the work.</p>
+          <a class="photo-credit" href="https://unsplash.com/photos/man-in-white-dress-shirt-and-white-pants-sitting-on-white-wooden-fence-during-daytime-Q1oEbLdBP4g" target="_blank" rel="noopener noreferrer">Photo: Rodrigo Sümmer</a>
+        </div>
+      </section>
+
+      <section class="builder-layout">
+        <div class="card builder-box">
+          <h2>Create an outfit</h2>
+
+          <div class="outfit-preview" id="outfitPreview">
+            <div class="preview-row"><span>Top</span><strong id="selectedTop">Not selected</strong></div>
+            <div class="preview-row"><span>Bottom</span><strong id="selectedBottom">Not selected</strong></div>
+            <div class="preview-row"><span>Shoes</span><strong id="selectedShoes">Not selected</strong></div>
+            <div class="preview-row"><span>Accessory</span><strong id="selectedAccessory">Not selected</strong></div>
+          </div>
+
+          <div class="form-grid small-grid">
+            <div>
+              <label for="topSelect">Top</label>
+              <select id="topSelect"></select>
+            </div>
+
+            <div>
+              <label for="bottomSelect">Bottom</label>
+              <select id="bottomSelect"></select>
+            </div>
+
+            <div>
+              <label for="shoesSelect">Shoes</label>
+              <select id="shoesSelect"></select>
+            </div>
+
+            <div>
+              <label for="accessorySelect">Accessory</label>
+              <select id="accessorySelect"></select>
+            </div>
+          </div>
+
+          <div class="name-box">
+            <label for="outfitName">Outfit Name</label>
+            <input id="outfitName" type="text" placeholder="Friday dinner" />
+          </div>
+
+          <button id="saveOutfitBtn" class="button primary">Save Outfit</button>
+        </div>
+
+        <div class="card">
+          <h2>Saved outfits</h2>
+          <div id="savedOutfits" class="saved-outfits"></div>
+        </div>
+      </section>
+    </main>
+
+    <script src="js/script.js"></script>
+  </body>
+</html>

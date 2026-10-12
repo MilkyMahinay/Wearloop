@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>My Wardrobe</title>
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+  <body data-page="wardrobe">
+    <header class="topbar">
+      <div class="brand">
+        <span class="brand-mark">V</span>
+        <div>
+          <strong>WARDROBE</strong>
+          <small>ROTATION PLANNER</small>
+        </div>
+      </div>
+
+      <nav class="nav">
+        <a href="index.html">Dashboard</a>
+        <a href="wardrobe.html" class="active">My Wardrobe</a>
+        <a href="outfits.html">Outfits</a>
+        <a href="events.html">Events</a>
+      </nav>
+      <a href="wardrobe.html#addClothing" class="button header-cta">Add item</a>
+    </header>
+
+    <main class="page">
+      <section class="page-photo">
+        <img src="https://images.unsplash.com/photo-1619603364937-8d7af41ef206?auto=format&fit=crop&w=900&q=80" alt="Man wearing a camel coat over a brown knit" loading="lazy" />
+        <div class="page-photo-copy">
+          <p class="eyebrow">STYLE STUDY / MENSWEAR</p>
+          <h1>My Wardrobe</h1>
+          <p>Build a considered collection, one good piece at a time.</p>
+          <a href="#addClothing" class="button primary">Add Clothing</a>
+          <a class="photo-credit" href="https://unsplash.com/photos/man-in-brown-coat-standing--au3XMzfhro" target="_blank" rel="noopener noreferrer">Photo: Taras Chernus</a>
+        </div>
+      </section>
+
+      <section class="toolbar card">
+        <input id="searchInput" type="text" placeholder="Search clothes..." />
+        <select id="categoryFilter">
+          <option value="All">All categories</option>
+          <option value="Shirts">Shirts</option>
+          <option value="T-Shirts">T-Shirts</option>
+          <option value="Pants">Pants</option>
+          <option value="Jackets">Jackets</option>
+          <option value="Shoes">Shoes</option>
+          <option value="Accessories">Accessories</option>
+        </select>
+      </section>
+
+      <section id="addClothing" class="card form-card">
+        <h2>Add new clothing item</h2>
+
+        <form id="clothingForm">
+          <div class="form-grid">
+            <div>
+              <label for="clothingName">Name</label>
+              <input id="clothingName" type="text" placeholder="Blue shirt" required />
+            </div>
+
+            <div>
+              <label for="clothingCategory">Category</label>
+              <select id="clothingCategory">
+                <option value="Shirts">Shirts</option>
+                <option value="T-Shirts">T-Shirts</option>
+                <option value="Pants">Pants</option>
+                <option value="Jackets">Jackets</option>
+                <option value="Shoes">Shoes</option>
+                <option value="Accessories">Accessories</option>
+              </select>
+            </div>
+
+            <div>
+              <label for="clothingColor">Color</label>
+              <input id="clothingColor" type="text" placeholder="Blue" required />
+            </div>
+
+            <div>
+              <label for="clothingStyle">Style</label>
+              <input id="clothingStyle" type="text" placeholder="Casual" required />
+            </div>
+          </div>
+
+          <div class="photo-box">
+            <label for="clothingPhoto">Photo</label>
+            <input id="clothingPhoto" type="file" accept="image/*" />
+          </div>
+
+          <button type="submit" class="button primary">Add Clothing</button>
+        </form>
+      </section>
+
+      <section class="card">
+        <h2>Wardrobe items</h2>
+        <div id="wardrobeItems" class="wardrobe-grid"></div>
+      </section>
+
+      <section class="card favorites-box">
+        <h2>Favorite clothes</h2>
+        <div id="favoriteClothes" class="favorite-items"></div>
+      </section>
+    </main>
+
+    <script src="js/script.js"></script>
+  </body>
+</html>
